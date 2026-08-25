@@ -1,5 +1,5 @@
 /* =============================================================
-   main.js — site-wide interactions
+   main.js - site-wide interactions
    Nav toggle, scroll reveal, testimonial carousel, form handling.
    ============================================================= */
 
@@ -80,7 +80,7 @@ function initCarousel() {
 
 /* ---------- Forms: newsletter + contact ----------
    These post to placeholder endpoints. Swap the action URLs with
-   real ones (Formspree, ConvertKit, Mailchimp, etc.) when ready —
+   real ones (Formspree, ConvertKit, Mailchimp, etc.) when ready -
    see README.md for exactly what to change. */
 function initForms() {
   const contactForm = document.getElementById("contact-form");
@@ -115,7 +115,7 @@ async function handleFormSubmit(e, form, statusId) {
       headers: { Accept: "application/json" },
     });
     if (res.ok) {
-      showStatus(statusEl, "Thanks — your message is on its way.", "success");
+      showStatus(statusEl, "Thanks - your message is on its way.", "success");
       form.reset();
     } else {
       showStatus(statusEl, "Something went wrong. Please try again or email directly.", "error");

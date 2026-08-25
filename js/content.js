@@ -19,7 +19,7 @@
    1. Push this project to GitHub (see README.md).
    2. Update CMS_CONFIG.owner / CMS_CONFIG.repo below to match.
    3. Set CMS_CONFIG.useLiveData = true.
-   That's it — new posts published through /admin will appear on the
+   That's it - new posts published through /admin will appear on the
    site automatically, no code changes needed.
    ============================================================= */
 
@@ -334,7 +334,7 @@ async function renderSinglePost() {
     return;
   }
 
-  document.title = `${post.title} — Steve Marchetti`;
+  document.title = `${post.title} - Steve Marchetti`;
   const tags = Array.isArray(post.tags) ? post.tags : [post.tags].filter(Boolean);
 
   el.innerHTML = `

@@ -1,4 +1,4 @@
-# Steve Marchetti — Personal Website
+# Steve Marchetti - Personal Website
 
 A static, vanilla HTML/CSS/JS site for Steve Marchetti (K-12 education leader, AI-in-education speaker and writer), with content management through [Decap CMS](https://decapcms.org/) (formerly Netlify CMS).
 
@@ -19,7 +19,7 @@ A static, vanilla HTML/CSS/JS site for Steve Marchetti (K-12 education leader, A
 /css/styles.css            All site styling
 /js/main.js                 Nav, scroll reveal, carousel, form handling
 /js/content.js               Reads /content markdown and renders cards/pages
-/img/                          Empty (.gitkeep) — drop real photos and graphics in here
+/img/                          Empty (.gitkeep) - drop real photos and graphics in here
 /favicon.svg                Lighthouse mark used as the site favicon
 ```
 
@@ -49,7 +49,7 @@ python3 -m http.server 8000
        useLiveData: true,
      };
      ```
-  3. Save and redeploy. The browser will now fetch markdown files directly from `content/blog` and `content/articles` in your GitHub repo via the public GitHub API and render them — no code changes needed for future posts.
+  3. Save and redeploy. The browser will now fetch markdown files directly from `content/blog` and `content/articles` in your GitHub repo via the public GitHub API and render them - no code changes needed for future posts.
 
 If the live fetch ever fails (rate limit, network issue, wrong repo name), the site quietly falls back to the sample content so it never shows a broken page.
 
@@ -85,7 +85,7 @@ Every image slot on the site is a clearly labeled dashed placeholder box, e.g.:
 
 ```html
 <div class="placeholder-box placeholder-box--portrait">
-  Photo: Steve Marchetti — Headshot
+  Photo: Steve Marchetti - Headshot
   <small>img/headshot.jpg</small>
 </div>
 ```
@@ -99,7 +99,7 @@ The `<small>` text is the filename the real image is expected to have. To swap i
    ```
    (You can keep the same class name for sizing, or write your own.)
 
-Blog post hero images and card images referenced in `/content/*.md` (`image:` front matter field) work the same way — set the field via `/admin` to a real path under `img/`.
+Blog post hero images and card images referenced in `/content/*.md` (`image:` front matter field) work the same way - set the field via `/admin` to a real path under `img/`.
 
 ## Forms (contact + newsletter)
 
@@ -110,7 +110,7 @@ Both forms currently point at placeholder endpoints:
 
 `js/main.js` detects the placeholder URLs and shows a friendly "not connected yet" message instead of failing silently, so it's obvious in testing which forms still need real endpoints.
 
-The Contact page also has a placeholder box for an embedded scheduling widget (e.g. Calendly) — replace it with the provider's embed snippet once you have one.
+The Contact page also has a placeholder box for an embedded scheduling widget (e.g. Calendly) - replace it with the provider's embed snippet once you have one.
 
 ## Deployment via GitHub Pages
 
@@ -125,12 +125,12 @@ The Contact page also has a placeholder box for an embedded scheduling widget (e
    ```
 2. In the repo, go to **Settings → Pages**, set the source to the `main` branch, root folder.
 3. Update `admin/config.yml` and `js/content.js` (`CMS_CONFIG`) with your real `owner/repo` as described above.
-4. Set up the Decap CMS GitHub OAuth backend so `/admin` can authenticate (see above) — this is a separate step from Pages hosting.
+4. Set up the Decap CMS GitHub OAuth backend so `/admin` can authenticate (see above) - this is a separate step from Pages hosting.
 5. Push again. Your site will be live at `https://your-github-username.github.io/marchetti-site-v1/`.
 
 ## Branding notes
 
 - **Logo**: inline SVG lighthouse mark, defined directly in each page's header/footer so it can be recolored via CSS without swapping image files.
-- **Palette**: deep navy base (`#0a0e1a`) with an amber "lighthouse beam" accent (`#f2b544`) and a secondary violet accent (`#7c6cff`). Tokens are defined as CSS variables at the top of `css/styles.css` — change them there to retheme the whole site.
+- **Palette**: deep navy base (`#0a0e1a`) with an amber "lighthouse beam" accent (`#f2b544`) and a secondary violet accent (`#7c6cff`). Tokens are defined as CSS variables at the top of `css/styles.css` - change them there to retheme the whole site.
 - **Fonts**: Space Grotesk (headings) + Inter (body), loaded from Google Fonts.
-- **Social links**: Instagram and LinkedIn icons in the header/footer/contact page currently link to `#` — update with real profile URLs once available.
+- **Social links**: Instagram and LinkedIn icons in the header/footer/contact page currently link to `#` - update with real profile URLs once available.

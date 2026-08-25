@@ -1,11 +1,11 @@
 # Decap CMS configuration
 # Docs: https://decapcms.org/docs/add-to-your-site/
 #
-# IMPORTANT — before this admin panel will let anyone log in:
+# IMPORTANT - before this admin panel will let anyone log in:
 # 1. Update `repo` below to your actual "owner/repo-name" on GitHub.
 # 2. Register a GitHub OAuth App (or use Decap's hosted OAuth provider)
 #    so the backend below can authenticate editors. See README.md for
-#    the exact steps — this will not work out of the box.
+#    the exact steps - this will not work out of the box.
 
 backend:
   name: github
