@@ -71,11 +71,17 @@ function initCarousel() {
     dots.forEach((d, di) => d.classList.toggle("is-active", di === index));
   }
 
-  dots.forEach((dot, i) => dot.addEventListener("click", () => goTo(i)));
-
   let auto = setInterval(() => goTo(index + 1), 6000);
-  controls.addEventListener("mouseenter", () => clearInterval(auto));
-  track.addEventListener("mouseenter", () => clearInterval(auto));
+  function stopAuto() {
+    clearInterval(auto);
+  }
+
+  dots.forEach((dot, i) => dot.addEventListener("click", () => { goTo(i); stopAuto(); }));
+
+  controls.addEventListener("mouseenter", stopAuto);
+  track.addEventListener("mouseenter", stopAuto);
+  controls.addEventListener("touchstart", stopAuto, { passive: true });
+  track.addEventListener("touchstart", stopAuto, { passive: true });
 }
 
 /* ---------- Forms: newsletter + contact ----------
