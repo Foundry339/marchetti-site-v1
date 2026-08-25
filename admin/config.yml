@@ -1,0 +1,45 @@
+# Decap CMS configuration
+# Docs: https://decapcms.org/docs/add-to-your-site/
+#
+# IMPORTANT — before this admin panel will let anyone log in:
+# 1. Update `repo` below to your actual "owner/repo-name" on GitHub.
+# 2. Register a GitHub OAuth App (or use Decap's hosted OAuth provider)
+#    so the backend below can authenticate editors. See README.md for
+#    the exact steps — this will not work out of the box.
+
+backend:
+  name: github
+  repo: YOUR_GITHUB_USERNAME/marchetti-site-v1
+  branch: main
+
+# Where the CMS commits media uploads.
+media_folder: "img"
+public_folder: "/img"
+
+publish_mode: simple
+
+collections:
+  - name: "blog"
+    label: "Blog Posts"
+    folder: "content/blog"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "datetime", format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false }
+      - { label: "Tags", name: "tags", widget: "list", default: ["AI in Education"] }
+      - { label: "Hero Image", name: "image", widget: "image", required: false, hint: "Uploads save into /img. Reference the resulting path here." }
+      - { label: "Excerpt", name: "excerpt", widget: "text", hint: "Short summary shown on blog cards." }
+      - { label: "Body", name: "body", widget: "markdown" }
+
+  - name: "articles"
+    label: "Curated Articles"
+    folder: "content/articles"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Source Name", name: "source", widget: "string" }
+      - { label: "External URL", name: "url", widget: "string" }
+      - { label: "Why It Matters", name: "commentary", widget: "text" }
+      - { label: "Date", name: "date", widget: "datetime", format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false }
