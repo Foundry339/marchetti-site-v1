@@ -107,8 +107,9 @@ body::before {
 }
 .section-label::before {
   content: "";
-  width: 22px;
-  height: 2px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
   background: var(--gold);
   display: inline-block;
 }
