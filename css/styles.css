@@ -813,4 +813,6 @@ body::before {
   .article-row-icon { display: none; }
   .cta-banner { padding: 36px 24px; }
   .media-kit-box { flex-direction: column; align-items: flex-start; }
+  .testimonial-slide { padding: 32px 24px; }
+  .testimonial-slide p { font-size: 1.1rem; }
 }
