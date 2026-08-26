@@ -583,6 +583,7 @@ body::before {
 }
 .testimonial-slide {
   min-width: 100%;
+  margin: 0;
   padding: 56px;
   display: flex;
   flex-direction: column;
