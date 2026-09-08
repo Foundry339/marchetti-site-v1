@@ -24,7 +24,7 @@
    ============================================================= */
 
 const CMS_CONFIG = {
-  owner: "YOUR_GITHUB_USERNAME",
+  owner: "Foundry339",
   repo: "marchetti-site-v1",
   branch: "main",
   useLiveData: false,

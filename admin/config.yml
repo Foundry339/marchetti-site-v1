@@ -9,7 +9,7 @@
 
 backend:
   name: github
-  repo: YOUR_GITHUB_USERNAME/marchetti-site-v1
+  repo: Foundry339/marchetti-site-v1
   branch: main
 
 # Where the CMS commits media uploads.
