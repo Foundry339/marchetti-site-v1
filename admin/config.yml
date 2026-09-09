@@ -2,14 +2,13 @@
 # Docs: https://decapcms.org/docs/add-to-your-site/
 #
 # IMPORTANT - before this admin panel will let anyone log in:
-# 1. Update `repo` below to your actual "owner/repo-name" on GitHub.
-# 2. Register a GitHub OAuth App (or use Decap's hosted OAuth provider)
-#    so the backend below can authenticate editors. See README.md for
-#    the exact steps - this will not work out of the box.
+# 1. Deploy this site to Netlify (see README.md).
+# 2. Enable Identity and Git Gateway in Site settings on Netlify.
+# 3. Invite editors under Identity - they log in with email/password,
+#    no GitHub account needed.
 
 backend:
-  name: github
-  repo: Foundry339/marchetti-site-v1
+  name: git-gateway
   branch: main
 
 # Where the CMS commits media uploads.
