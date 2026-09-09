@@ -101,6 +101,39 @@ const SAMPLE_ARTICLES = [
   },
 ];
 
+const SAMPLE_BOOKS = [
+  {
+    slug: "the-ai-horizon-field-guide",
+    title: "The AI Horizon: A Field Guide for Educators",
+    cover: "img/book-ai-horizon.jpg",
+    description:
+      "A practical, jargon-free guide to bringing AI into classroom practice without losing what makes great teaching great.",
+    link_url: "#",
+    link_text: "Buy the book",
+    order: 1,
+  },
+  {
+    slug: "leading-change-not-just-technology",
+    title: "Leading Change, Not Just Technology",
+    cover: "img/book-leading-change.jpg",
+    description:
+      "A leadership handbook on rolling out new tools across a district without burning out your staff.",
+    link_url: "#",
+    link_text: "Buy the book",
+    order: 2,
+  },
+  {
+    slug: "contributed-chapter-teaching-in-the-age-of-ai",
+    title: "Contributed Chapter: \"Teaching in the Age of AI\"",
+    cover: "img/book-contributed-chapter.jpg",
+    description:
+      "A chapter contribution in a wider anthology on the future of K-12 education, published 2025 (placeholder).",
+    link_url: "#",
+    link_text: "View publication",
+    order: 3,
+  },
+];
+
 /* ---------- Tiny front-matter parser ---------- */
 function parseFrontMatter(raw) {
   const match = raw.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n?([\s\S]*)$/);
@@ -202,6 +235,11 @@ async function getArticles() {
   return [...articles].sort((a, b) => new Date(b.date) - new Date(a.date));
 }
 
+async function getBooks() {
+  const books = await loadCollection("content/books", SAMPLE_BOOKS, "cms_books");
+  return [...books].sort((a, b) => (Number(a.order) || 0) - (Number(b.order) || 0));
+}
+
 /* ---------- Rendering ---------- */
 function formatDate(iso) {
   const d = new Date(iso);
@@ -243,6 +281,24 @@ function articleRowHTML(article) {
       </div>
       <div class="article-row-date">${formatDate(article.date)}</div>
     </a>`;
+}
+
+function bookCardHTML(book) {
+  return `
+    <div class="book-card reveal">
+      <div class="placeholder-box placeholder-box--portrait">
+        Book Cover Placeholder
+        <small>${escapeHtml(book.cover || "img/book-placeholder.jpg")}</small>
+      </div>
+      <div class="card-body">
+        <h3>${escapeHtml(book.title)}</h3>
+        <p>${escapeHtml(book.description || "")}</p>
+        <a href="${escapeAttr(book.link_url || "#")}" class="card-link">
+          ${escapeHtml(book.link_text || "Buy the book")}
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+    </div>`;
 }
 
 function escapeHtml(str) {
@@ -321,6 +377,16 @@ async function renderArticlesList() {
   observeReveals(el);
 }
 
+async function renderBooksGrid() {
+  const el = document.getElementById("books-grid");
+  if (!el) return;
+  const books = await getBooks();
+  el.innerHTML = books.length
+    ? books.map(bookCardHTML).join("")
+    : `<div class="empty-state">No books published yet. Check back soon.</div>`;
+  observeReveals(el);
+}
+
 async function renderSinglePost() {
   const el = document.getElementById("post-content");
   if (!el) return;
@@ -390,5 +456,6 @@ document.addEventListener("DOMContentLoaded", () => {
   renderLatestArticles();
   renderBlogGrid();
   renderArticlesList();
+  renderBooksGrid();
   renderSinglePost();
 });

@@ -42,3 +42,16 @@ collections:
       - { label: "External URL", name: "url", widget: "string" }
       - { label: "Why It Matters", name: "commentary", widget: "text" }
       - { label: "Date", name: "date", widget: "datetime", format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false }
+
+  - name: "books"
+    label: "Books & Publications"
+    folder: "content/books"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Cover Image", name: "cover", widget: "image", required: false, hint: "Uploads save into /img. Reference the resulting path here." }
+      - { label: "Description", name: "description", widget: "text" }
+      - { label: "Link URL", name: "link_url", widget: "string", hint: "Where the buy/view link should point." }
+      - { label: "Link Text", name: "link_text", widget: "string", default: "Buy the book" }
+      - { label: "Order", name: "order", widget: "number", default: 1, hint: "Lower numbers show first." }
