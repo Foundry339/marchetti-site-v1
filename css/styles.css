@@ -746,7 +746,8 @@ body::before {
   gap: 48px;
   align-items: start;
 }
-.form-field { margin-bottom: 20px; }
+.contact-grid > * { min-width: 0; }
+.form-field { margin-bottom: 20px; min-width: 0; }
 .form-field label {
   display: block;
   font-size: 0.85rem;
