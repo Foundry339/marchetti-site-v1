@@ -758,11 +758,17 @@ body::before {
 .form-field input,
 .form-field textarea {
   width: 100%;
+  max-width: 100%;
   padding: 14px 16px;
   border-radius: var(--radius-sm);
   border: 1px solid var(--border-strong);
   background: var(--bg-elevated);
   color: var(--text);
+}
+.form-field input[type="date"] {
+  padding-left: 10px;
+  padding-right: 10px;
+  font-size: 0.9rem;
 }
 .form-field input:focus,
 .form-field textarea:focus {
