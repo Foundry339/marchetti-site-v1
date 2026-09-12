@@ -367,6 +367,16 @@ body::before {
 .placeholder-box--wide { aspect-ratio: 16 / 9; }
 .placeholder-box--card { min-height: 160px; aspect-ratio: 16 / 10; }
 
+.hero-photo {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+  display: block;
+}
+
 /* ---------- Recognition strip ---------- */
 .recognition {
   border-top: 1px solid var(--border);
